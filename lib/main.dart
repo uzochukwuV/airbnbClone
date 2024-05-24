@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lex/components/tween.dart';
+import 'package:lex/components/tweenbuilder.dart';
 import "components/sample.dart";
 
 void main() {
@@ -13,11 +15,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const AirbnbClone(),
+      home: const Tweenbuilder(),
     );
   }
 }

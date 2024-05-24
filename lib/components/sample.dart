@@ -1258,6 +1258,8 @@ class _TripsScreenState extends State<TripsScreen> {
         ),
       ),
       const SizedBox(height: 32),
+
+
       SizedBox(
         height: 300,
         child: Image.network(
@@ -1265,6 +1267,8 @@ class _TripsScreenState extends State<TripsScreen> {
           fit: BoxFit.cover,
         ),
       ),
+
+      
       const SizedBox(height: 32),
       ElevatedButton(
         onPressed: widget.navigateToExploreScreen as void Function()?,
@@ -1714,9 +1718,9 @@ class ExploreScreen extends StatelessWidget {
         SliverList(
           delegate: SliverChildListDelegate(
             [
-              Column(
+              const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   SizedBox(height: 32),
                   SectionTitle(text: 'Explore nearby'),
                   SizedBox(height: 24),
@@ -1980,7 +1984,7 @@ class ExploreCityGrid extends StatelessWidget {
     return SizedBox(
       height: 200,
       child: GridView.count(
-          crossAxisCount: 2,
+          crossAxisCount: 3,
           crossAxisSpacing: 14,
           childAspectRatio: .33,
           padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
@@ -2044,13 +2048,14 @@ class _CustomSliverAppBarState extends State<CustomSliverAppBar> {
           ],
         ),
       ),
-      pinned: true,
+      pinned: false,
       backgroundColor: isToolbarCollapsed ? Colors.white : Colors.black,
       expandedHeight: expandedHeight,
       collapsedHeight: 68,
       flexibleSpace: LayoutBuilder(
         builder: (context, constraints) {
           SchedulerBinding.instance.addPostFrameCallback((_) {
+            print(_);
             if (!isToolbarCollapsed && constraints.biggest.height <= 130) {
               setState(() {
                 isToolbarCollapsed = true;
